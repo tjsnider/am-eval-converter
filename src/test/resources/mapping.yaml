@@ -1,0 +1,20 @@
+- inputField: id
+  outputField: patiendId
+  mapType: straight-rename
+  mapping: string
+- inputField: gender
+  outputField: sex
+  mapType: custom
+  mapping: ""outputField"": com.ted.snider.converter.lookup.Sex.fromAbbreviation(value.toLowerCase()).getDescription()
+- inputField: name
+  outputField: name
+  mapType: straight
+  mapping: string
+- inputField: state
+  outputField: state
+  mapType: custom
+  mapping: ""outputField"": com.ted.snider.converter.lookup.State.valueOf(value.toUpperCase().replace(" ", "")).getCode()
+- inputField: dateOfBirth
+  outputField: age
+  mapType: custom
+  mapping: ""outputField"": java.time.Period.between(java.time.LocalDate(value), java.time.LocalDate.now()).getYears()
