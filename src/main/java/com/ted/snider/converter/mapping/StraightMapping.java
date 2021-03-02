@@ -18,15 +18,15 @@ public class StraightMapping implements Mapping {
 		switch (value.getMapping()) {
 			case "integer":
 				eval.setParameters(new String[] { "field", "value" }, new Class[] { String.class, Long.class });
-				eval.cook("\"field\": value");
+				eval.cook("new StringBuilder().append(\"\\\"\").append(field).append(\"\\\": \").append(value).toString()");
 				break;
 			case "float":
 				eval.setParameters(new String[] { "field", "value" }, new Class[] { String.class, Double.class });
-				eval.cook("\"field\": value");
+				eval.cook("new StringBuilder().append(\"\\\"\").append(field).append(\"\\\": \").append(value).toString()");
 				break;
 			default:
 				eval.setParameters(new String[] { "field", "value" }, new Class[] { String.class, String.class });
-				eval.cook("\"field\": \"value\"");
+				eval.cook("new StringBuilder().append(\"\\\"\").append(field).append(\"\\\": \\\"\").append(value).append(\"\\\"\").toString()");
 		}
 
 		field = value.getInputField();

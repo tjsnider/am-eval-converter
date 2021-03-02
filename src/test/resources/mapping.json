@@ -1,0 +1,32 @@
+[
+  {
+     "inputField": "id",
+     "outputField": "patiendId",
+     "mapType": "straight-rename",
+     "mapping": "\"string\""
+  },
+  {
+     "inputField": "gender",
+     "outputField": "sex",
+     "mapType": "custom",
+     "mapping": "new StringBuilder().append(\"\\\"\").append(outputField).append(\"\\\" : \").append(com.ted.snider.converter.lookup.Sex.fromAbbreviation(value.toLowerCase()).getDescription()).append(\"\\\"\").toString()"
+  },
+  {
+     "inputField": "name",
+     "outputField": "name",
+     "mapType": "straight",
+     "mapping": "\"string\""
+  },
+  {
+     "inputField": "state",
+     "outputField": "state",
+     "mapType": "custom",
+     "mapping": "new StringBuilder().append(\"\\\"\").append(outputField).append(\"\\\" : \").append(com.ted.snider.converter.lookup.State.valueOf(value.toUpperCase().replace(\" \", \"\")).getCode()).append(\"\\\"\").toString()"
+  },
+  {
+     "inputField": "dateOfBirth",
+     "outputField": "age",
+     "mapType": "custom",
+     "mapping": "new StringBuilder().append(\"\\\"\").append(outputField).append(\"\\\" : \").append(java.time.Period.between(java.time.LocalDate(value), java.time.LocalDate.now()).getYears()).toString()"
+  }
+]

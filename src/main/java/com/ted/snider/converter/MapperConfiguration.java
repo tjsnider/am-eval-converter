@@ -1,5 +1,6 @@
 package com.ted.snider.converter;
 
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -8,7 +9,6 @@ import com.ted.snider.converter.mapping.Mapping;
 import com.ted.snider.converter.mapping.StraightMapping;
 import com.ted.snider.converter.mapping.StraightRenameMapping;
 import com.ted.snider.converter.properties.MappingProp;
-import com.ted.snider.converter.properties.MappingProps;
 
 //TODO: rename to something more representative.
 /**
@@ -23,8 +23,8 @@ public class MapperConfiguration {
         // ???
     }
 
-    public Map<String, Mapper> configure(MappingProps props) throws Exception {
-        Map<String, MappingProp> intermediate = props.getProps().stream()
+    public Map<String, Mapper> configure(List<MappingProp> properties) throws Exception {
+        Map<String, MappingProp> intermediate = properties.stream()
                 .collect(Collectors.toMap(prop -> prop.getInputField(), prop -> {
                     return (MappingProp) prop;
                 }));

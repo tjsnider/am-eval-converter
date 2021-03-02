@@ -1,0 +1,20 @@
+[
+    {
+        "inputField": "straightTest",
+        "outputField": "should be largely ignored",
+        "mapType": "straight",
+        "mapping": "string"
+    },
+    {
+        "inputField": "straight-rename-test",
+        "outputField": "straightRenameTest",
+        "mapType": "straight-rename",
+        "mapping": "string"
+    },
+    {
+        "inputField": "custom-test",
+        "outputField": "customTest",
+        "mapType": "custom",
+        "mapping": "\"\"outputField\"\": value*value"
+    }
+]

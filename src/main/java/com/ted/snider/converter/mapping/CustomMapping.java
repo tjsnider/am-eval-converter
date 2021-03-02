@@ -16,7 +16,7 @@ public class CustomMapping implements Mapping {
 	public CustomMapping(MappingProp value) throws Exception {
 		this.eval = CompilerFactoryFactory.getDefaultCompilerFactory().newExpressionEvaluator();
 		eval.setExpressionType(String.class);
-		eval.setParameters(new String[] { "inputField", "outputField", "value" }, new Class[] { String.class, String.class });
+		eval.setParameters(new String[] { "inputField", "outputField", "value" }, new Class[] { String.class, String.class, String.class });
 		eval.cook(value.getMapping());
 
 		this.inputField = value.getInputField();
